@@ -11,10 +11,10 @@ import de.robv.android.xposed.callbacks.XC_LoadPackage;
 public class SecurityCenterHook {
     public static void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         // miui-countdowntimer-bypass
-        findAndHookMethod("com.miui.permcenter.privacymanager.d", lpparam.classLoader, "c", new XC_MethodReplacement() {
+        findAndHookMethod("com.miui.permcenter.privacymanager.g", lpparam.classLoader, "n", new XC_MethodReplacement() {
             @Override
             protected Object replaceHookedMethod(XC_MethodHook.MethodHookParam param) throws Throwable {
-                Method mtdA = param.thisObject.getClass().getDeclaredMethod("a", boolean.class);
+                Method mtdA = param.thisObject.getClass().getDeclaredMethod("d", boolean.class);
                 mtdA.invoke(param.thisObject, true);
                 return null;
             }
